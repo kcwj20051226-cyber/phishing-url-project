@@ -170,5 +170,5 @@ elif app_mode == "📖 專案介紹與架構 (About Project)":
     col1.metric("113213021", "陳昱維")
     col2.metric("113213065", "謝承道")
     col3.metric("113213069", "蘇資晉")
-    col4.metric("113213077", "温佳哲")
-    col5.metric("113213076", "王志騰")
+    col4.metric("113213076", "王志騰")
+    col5.metric("113213077", "温佳哲")
