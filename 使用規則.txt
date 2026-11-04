@@ -1,2 +1,0 @@
-cd phishing-url-project 
-python src/predict_url.py 

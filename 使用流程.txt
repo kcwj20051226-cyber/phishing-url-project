@@ -1,0 +1,4 @@
+1.   git clone https://github.com/kcwj20051226-cyber/phishing-url-project.git
+2.   cd phishing-url-project
+3.   pip install pandas numpy scikit-learn joblib streamlit matplotlib seaborn
+4.   streamlit run app/streamlit_app.py
