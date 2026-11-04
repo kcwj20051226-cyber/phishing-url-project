@@ -1,0 +1,6 @@
+﻿URL,True Label,Predicted,Error Type,Possible Reason
+digilander.libero.it/facebookit/,Phishing,Legitimate,False Negative (釣魚誤判為正常),"URL contains suspicious keywords (e.g., login/secure) but is a legitimate service."
+discountleddisplays.com/site/,Legitimate,Phishing,False Positive (正常誤判為釣魚),Phishing URL is short and lacks obvious dot/special character patterns.
+www.tscluna.sk/online/telenor.htm,Phishing,Legitimate,False Negative (釣魚誤判為正常),Complex subdomain structure misleads the feature extraction.
+classes.uleth.ca/200303/mgt3862a/,Legitimate,Phishing,False Positive (正常誤判為釣魚),"Legitimate URL has excessive path length, mimicking phishing behavior."
+intranet.mytvonline.co.uk/inform.htm,Phishing,Legitimate,False Negative (釣魚誤判為正常),Uncommon TLD or encoded characters triggered false alarm.
