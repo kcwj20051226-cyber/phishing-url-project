@@ -1,0 +1,26 @@
+[
+  {
+    "Model": "Six features",
+    "Features": 6,
+    "Accuracy": 0.9634,
+    "Precision_Phishing": 0.9587,
+    "Recall_Phishing": 0.9556,
+    "F1_Phishing": 0.9571,
+    "False_Negatives": 896,
+    "False_Positives": 832,
+    "True_Negatives": 26138,
+    "True_Positives": 19293
+  },
+  {
+    "Model": "Five features (no image)",
+    "Features": 5,
+    "Accuracy": 0.8663,
+    "Precision_Phishing": 0.8205,
+    "Recall_Phishing": 0.8803,
+    "F1_Phishing": 0.8494,
+    "False_Negatives": 2417,
+    "False_Positives": 3887,
+    "True_Negatives": 23083,
+    "True_Positives": 17772
+  }
+]

@@ -1,0 +1,3 @@
+﻿Model,Features,Accuracy,Precision_Phishing,Recall_Phishing,F1_Phishing,False_Negatives,False_Positives,True_Negatives,True_Positives
+Six features,6,0.9634,0.9587,0.9556,0.9571,896,832,26138,19293
+Five features (no image),5,0.8663,0.8205,0.8803,0.8494,2417,3887,23083,17772
