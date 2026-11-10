@@ -34,12 +34,14 @@ def main():
     train_indices, test_indices = train_test_split(
         x.index.to_numpy(), test_size=0.2, random_state=SEED, stratify=y
     )
-    results_dir = Path('results')
-    results_dir.mkdir(exist_ok=True)
+    models_dir = Path('models')
+    models_dir.mkdir(exist_ok=True)
+    outputs_dir = Path('outputs/tables')
+    outputs_dir.mkdir(parents=True, exist_ok=True)
     summary = []
     for label, columns, filename in [
-        ('Six features', ALL_FEATURES, 'v4_2_six_features.joblib'),
-        ('Five features (no image)', [c for c in ALL_FEATURES if c != 'NoOfImage'], 'v4_2_five_features.joblib'),
+        ('Six features', ALL_FEATURES, 'html_rf_v4_2_six_features.joblib'),
+        ('Five features (no image)', [c for c in ALL_FEATURES if c != 'NoOfImage'], 'html_rf_v4_2_five_features.joblib'),
     ]:
         print(f'\n訓練 {label} ...', flush=True)
         model = RandomForestClassifier(
@@ -62,15 +64,14 @@ def main():
             'True_Positives': int(tp),
         }
         summary.append(row)
-        joblib.dump({'model': model, 'features': columns, 'label_mapping': '1 phishing; 0 legitimate', 'dataset': 'UCI PhiUSIIL #967'}, results_dir / filename)
+        joblib.dump({'model': model, 'features': columns, 'label_mapping': '1 phishing; 0 legitimate', 'dataset': 'UCI PhiUSIIL #967'}, models_dir / filename)
         print(f'Accuracy: {row["Accuracy"]:.4f} | Recall: {row["Recall_Phishing"]:.4f} | F1: {row["F1_Phishing"]:.4f} | 漏判: {fn} | 誤報: {fp}')
 
-    csv_path = results_dir / 'v4_2_feature_comparison.csv'
+    csv_path = outputs_dir / 'html_feature_comparison.csv'
     with csv_path.open('w', newline='', encoding='utf-8-sig') as f:
         writer = csv.DictWriter(f, fieldnames=list(summary[0]))
         writer.writeheader()
         writer.writerows(summary)
-    (results_dir / 'v4_2_feature_comparison.json').write_text(json.dumps(summary, indent=2, ensure_ascii=False), encoding='utf-8')
     print('\n====== 六特徵 vs 五特徵：相同測試資料 ======')
     print(pd.DataFrame(summary).to_string(index=False))
     print(f'\n已儲存：{csv_path}')

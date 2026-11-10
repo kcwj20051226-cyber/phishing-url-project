@@ -49,9 +49,8 @@ URL_MODELS = {
 }
 
 HTML_MODELS = {
-    "v4 原始六特徵": "models/html_rf_v4.joblib",
-    "v4.2 六特徵": "models/html_rf_v4_2_six_features.joblib",
-    "v4.2 五特徵": "models/html_rf_v4_2_five_features.joblib"
+    "六特徵模型 (完整版)": "models/html_rf_v4_2_six_features.joblib",
+    "五特徵模型 (消融實驗/無圖片)": "models/html_rf_v4_2_five_features.joblib"
 }
 
 
@@ -174,7 +173,7 @@ def display_html_report(result, predictions):
         "模型分數不是經校準的真實風險機率。"
     )
 
-    model_columns = st.columns(3)
+    model_columns = st.columns(len(predictions))
 
     for index, (name, output) in enumerate(predictions.items()):
 

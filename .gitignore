@@ -15,3 +15,5 @@ ENV/
 .idea/
 .DS_Store
 Thumbs.db
+# Office temporary files
+~$*
