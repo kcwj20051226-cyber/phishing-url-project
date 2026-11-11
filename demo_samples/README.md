@@ -1,17 +1,13 @@
-# HTML Demo Samples
+# HTML Demo 測試案例（模型驗證版）
 
-These three files are manually prepared demonstration samples for the phishing-detection project. They are intended for local HTML analysis in the Streamlit application.
+使用 `https://example.com/` 作為 HTML 原始網站網址，上傳至 Streamlit 的 HTML 分析頁。
 
-## Demo order
+| 檔案 | v4 六特徵 | v4.2 六特徵 | v4.2 五特徵 | 靜態檢查 |
+|---|---|---|---|---|
+| 01_normal_demo.html | 正常 | 正常 | 正常 | 四項無警示 |
+| 02_phishing_image_feature_demo.html | 釣魚 | 釣魚 | 正常 | 模擬釣魚案例 |
+| 03_phishing_warnings_demo.html | 釣魚 | 釣魚 | 釣魚 | 隱藏 iframe、跨網域表單、跨網域密碼表單、Meta Refresh |
 
-1. `01_normal_demo.html` — normal-looking sample; use it to demonstrate the baseline model output.
-2. `02_phishing_image_feature_demo.html` — simulated phishing/login sample; use it to demonstrate the observed difference between the five-feature and six-feature models.
-3. `03_phishing_warnings_demo.html` — simulated suspicious sample containing structures intended to trigger HTML static-analysis warnings.
+這些都是離線人工模擬的 HTML。只用於展示模型反應與靜態結構檢查，不能宣稱為真實遭檢舉的惡意網站。所有表單均停用提交，並使用範例網域，不會真的送出密碼。
 
-## How to test
-
-- Select **HTML 網頁安全分析** in the Streamlit app.
-- Choose **上傳 HTML 檔案** and upload one sample at a time.
-- Use `https://example.com/` as the original website URL for the cross-domain form demonstration.
-
-These are synthetic demo samples, not verified live phishing websites. Model predictions are empirical outputs for these exact files and may differ if the feature extractor, model artifacts, or application code changes. Static warnings indicate suspicious structures for review; they do not prove maliciousness.
+結果由 `src/validate_html_features.py` 相同規則所擷取特徵，交由三個上傳的 `.joblib` 模型進行預測驗證；scikit-learn 執行環境版本不同時仍應在 Streamlit 上做最後確認。
